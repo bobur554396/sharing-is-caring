@@ -1,7 +1,8 @@
 source 'https://rubygems.org'
-ruby '2.1.2'
+<<<<<<< HEAD
+ruby '2.1.1'
 
-gem 'rails', '~> 4.1.0'
+gem 'rails', '~> 4.1.4'
 
 #
 # PLATFORM SPECIFIC
@@ -47,7 +48,7 @@ gem 'coffee-rails'
 # gem 'therubyracer', platforms: :ruby
 
 # Design
-gem 'bootstrap-sass'
+gem 'foundation-rails'
 # gem 'bourbon'
 # gem 'neat'
 # gem 'country_select'
