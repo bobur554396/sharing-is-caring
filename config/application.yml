@@ -9,20 +9,20 @@ common: &common
   # Downcased and trimmed app name for namespaces.
   # Safest to start with a letter rather than a number.
   # See locales/en.yml for setting your app's user facing brand name.
-  app_name: 'starterkit'
+  app_name: 'shareshelf'
 
   social:
-    facebook: 'https://www.facebook.com/simple10'
-    twitter: 'https://twitter.com/joejohnston'
-    google_plus: 'https://plus.google.com/+JoeJohnstonSF'
-    linkedin: 'http://www.linkedin.com/in/startupjoe'
+    facebook: 'https://www.facebook.com/carolineartz'
+    twitter: 'https://twitter.com/carolineartz'
+    google_plus: 'https://plus.google.com/+caroline.artz'
+    linkedin: 'http://www.linkedin.com/in/carolineartz'
 
   contact:
-    email: 'joe@example.com'
+    email: 'ceartz@gmail.com'
     phone: '555-555-5555'
 
   session:
-    key: '_starterkit_session'
+    key: '_shareshelf_session'
     expire_after: <%= 30.days %>
 
   rack:

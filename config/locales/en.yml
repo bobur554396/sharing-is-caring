@@ -26,11 +26,11 @@
 
 en:
   brand:
-    name: 'StarterKit'
+    name: 'Sharing is Caring'
 
   emails:
     welcome:
-      subject: 'Welcome to StarterKit'
+      subject: 'Welcome to Sharing is Caring'
 
   auth:
     login:
