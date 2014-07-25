@@ -61,6 +61,7 @@ ActiveRecord::Schema.define(version: 20140204233952) do
     t.datetime "updated_at"
     t.index ["provider"], :name => "index_authentications_on_provider"
     t.index ["user_id"], :name => "fk__authentications_user_id"
+
     t.foreign_key ["user_id"], "users", ["id"], :on_update => :no_action, :on_delete => :no_action, :name => "fk_authentications_user_id"
   end
 
@@ -69,8 +70,13 @@ ActiveRecord::Schema.define(version: 20140204233952) do
     t.text     "data_json",         null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+
     t.index ["authentication_id"], :name => "index_oauth_caches_on_authentication_id", :unique => true
     t.foreign_key ["authentication_id"], "authentications", ["id"], :on_update => :no_action, :on_delete => :no_action, :name => "fk_oauth_caches_authentication_id"
+
+    # t.index ["authentication_id"], :name => "fk__oauth_caches_authentication_id"
+    # t.index ["authentication_id"], :name => "index_oauth_caches_on_authentication_id"
+
   end
 
   create_table "rails_admin_histories", force: true do |t|
@@ -84,5 +90,38 @@ ActiveRecord::Schema.define(version: 20140204233952) do
     t.datetime "updated_at"
     t.index ["item", "table", "month", "year"], :name => "index_rails_admin_histories"
   end
+
+
+  # create_table "users", force: true do |t|
+  #   t.string   "first_name"
+  #   t.string   "last_name"
+  #   t.string   "image_url"
+  #   t.string   "email",                  default: "", null: false
+  #   t.string   "encrypted_password",     default: "", null: false
+  #   t.string   "reset_password_token"
+  #   t.datetime "reset_password_sent_at"
+  #   t.datetime "remember_created_at"
+  #   t.integer  "sign_in_count",          default: 0,  null: false
+  #   t.datetime "current_sign_in_at"
+  #   t.datetime "last_sign_in_at"
+  #   t.string   "current_sign_in_ip"
+  #   t.string   "last_sign_in_ip"
+  #   t.string   "confirmation_token"
+  #   t.datetime "confirmed_at"
+  #   t.datetime "confirmation_sent_at"
+  #   t.string   "unconfirmed_email"
+  #   t.integer  "failed_attempts",        default: 0,  null: false
+  #   t.string   "unlock_token"
+  #   t.datetime "locked_at"
+  #   t.datetime "created_at"
+  #   t.datetime "updated_at"
+  #   t.boolean  "is_admin"
+  #   t.index ["confirmation_token"], :name => "index_users_on_confirmation_token", :unique => true
+  #   t.index ["email"], :name => "index_users_on_email", :unique => true, :case_sensitive => false
+  #   t.index ["is_admin"], :name => "index_users_on_is_admin"
+  #   t.index ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
+  #   t.index ["unlock_token"], :name => "index_users_on_unlock_token", :unique => true
+  # end
+
 
 end
