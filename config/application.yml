@@ -9,7 +9,7 @@ common: &common
   # Downcased and trimmed app name for namespaces.
   # Safest to start with a letter rather than a number.
   # See locales/en.yml for setting your app's user facing brand name.
-  app_name: 'shareshelf'
+  app_name: 'sharing_is_caring'
 
   social:
     facebook: 'https://www.facebook.com/carolineartz'
@@ -22,7 +22,7 @@ common: &common
     phone: '555-555-5555'
 
   session:
-    key: '_shareshelf_session'
+    key: '_sharing_is_caring_session'
     expire_after: <%= 30.days %>
 
   rack:
