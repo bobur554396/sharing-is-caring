@@ -1,5 +1,6 @@
 module ApplicationHelper
   include CommonHelper
+  include HashtagsHelper
 
   # Render a partial only one time.
   #

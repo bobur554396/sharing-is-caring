@@ -40,6 +40,7 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jquery-turbolinks'
 gem 'nprogress-rails'
+gem 'rails_autolink'
 
 # CoffeeScript
 # Not needed in production if precompiling assets
@@ -75,9 +76,11 @@ gem 'sidekiq'
 gem 'devise-async'
 gem 'sinatra', require: false
 
-# Utils
+# Utilss
 gem 'addressable'
 gem 'settingslogic'
+
+
 
 group :development do
   # Docs
@@ -129,6 +132,7 @@ group :development, :test do
 
   # Logging
   gem 'quiet_assets'
+  gem 'annotate'
 end
 
 group :test do
@@ -152,4 +156,6 @@ group :production do
   gem 'unicorn'
   gem 'rails_12factor'          # https://devcenter.heroku.com/articles/rails4
 end
+
+gem 'simple_hashtag'
 

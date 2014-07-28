@@ -61,6 +61,6 @@ class MicropostsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def micropost_params
-      params.require(:micropost).permit(:content, :user_id, :preview)
+      params.require(:micropost).permit(:content, :user_id, :hashtag_id)
     end
 end

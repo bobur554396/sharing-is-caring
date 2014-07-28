@@ -17,6 +17,8 @@ class Ability
     can :destroy, Micropost, user_id: user.id
     can :update, Micropost, user_id: user.id
     can :manage, Authentication, user_id: user.id
+    can :read, Hashtag
+    can :create, Hashtag
 
     if user.is_admin? && defined? RailsAdmin
       # Allow everything

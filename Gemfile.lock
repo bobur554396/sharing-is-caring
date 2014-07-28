@@ -31,6 +31,9 @@ GEM
     airbrake (3.1.16)
       builder
       multi_json
+    annotate (2.6.5)
+      activerecord (>= 2.3.0)
+      rake (>= 0.8.7)
     arel (5.0.1.20140414130214)
     awesome_print (1.2.0)
     bcrypt (3.1.7)
@@ -242,6 +245,8 @@ GEM
       remotipart (~> 1.0)
       safe_yaml (~> 1.0)
       sass-rails (~> 4.0)
+    rails_autolink (1.1.6)
+      rails (> 3.1)
     rails_serve_static_assets (0.0.2)
     rails_stdout_logging (0.0.3)
     railties (4.1.4)
@@ -307,6 +312,8 @@ GEM
     simple_form (3.0.2)
       actionpack (~> 4.0)
       activemodel (~> 4.0)
+    simple_hashtag (0.1.9)
+      rails (> 3.2.0)
     simplecov (0.9.0)
       docile (~> 1.1.0)
       multi_json
@@ -361,6 +368,7 @@ PLATFORMS
 DEPENDENCIES
   addressable
   airbrake
+  annotate
   awesome_print
   better_errors
   binding_of_caller
@@ -397,6 +405,7 @@ DEPENDENCIES
   rails (~> 4.1.4)
   rails_12factor
   rails_admin
+  rails_autolink
   rb-fsevent
   rspec-rails
   rspec-sidekiq
@@ -407,6 +416,7 @@ DEPENDENCIES
   shoulda-matchers
   sidekiq
   simple_form
+  simple_hashtag
   simplecov
   sinatra
   spring

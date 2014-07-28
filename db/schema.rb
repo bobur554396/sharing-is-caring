@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140726024625) do
+ActiveRecord::Schema.define(version: 20140728190547) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -64,11 +64,28 @@ ActiveRecord::Schema.define(version: 20140726024625) do
     t.foreign_key ["user_id"], "users", ["id"], :on_update => :no_action, :on_delete => :no_action, :name => "fk_authentications_user_id"
   end
 
+  create_table "hashtags", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.index ["name"], :name => "index_hashtags_on_name"
+  end
+
+  create_table "hashtaggings", force: true do |t|
+    t.integer "hashtag_id"
+    t.integer "hashtaggable_id"
+    t.string  "hashtaggable_type"
+    t.index ["hashtag_id"], :name => "index_hashtaggings_on_hashtag_id"
+    t.index ["hashtaggable_id", "hashtaggable_type"], :name => "index_hashtaggings_hashtaggable_id_hashtaggable_type"
+    t.foreign_key ["hashtag_id"], "hashtags", ["id"], :on_update => :no_action, :on_delete => :no_action, :name => "fk_hashtaggings_hashtag_id"
+  end
+
   create_table "microposts", force: true do |t|
     t.string   "content"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.index ["user_id", "created_at"], :name => "index_microposts_on_user_id_and_created_at"
     t.index ["user_id"], :name => "fk__microposts_user_id"
     t.foreign_key ["user_id"], "users", ["id"], :on_update => :no_action, :on_delete => :no_action, :name => "fk_microposts_user_id"
   end

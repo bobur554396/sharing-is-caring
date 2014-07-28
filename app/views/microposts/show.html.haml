@@ -1,8 +1,11 @@
+- require 'rails_autolink'
+
+
 %p#notice= notice
 
 %p
   %b Content:
-  = @micropost.content
+  = auto_link(@micropost.content, :html => { :class => 'embedly-card' })
 %p
   %b User:
   = @micropost.user_id
