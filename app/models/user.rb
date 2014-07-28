@@ -1,6 +1,10 @@
 class User < ActiveRecord::Base
   include Concerns::UserImagesConcern
 
+  has_many :microposts, dependent: :destroy
+  accepts_nested_attributes_for :microposts
+
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
          :confirmable, :timeoutable, :lockable, :async
@@ -10,6 +14,7 @@ class User < ActiveRecord::Base
       includes(:oauth_cache).group_by {|a| a.provider }
     end
   end
+
 
   after_create :send_welcome_emails
 

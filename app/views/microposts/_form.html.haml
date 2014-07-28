@@ -1,0 +1,17 @@
+= simple_form_for(@micropost) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.text_field :content, :id => 'url'
+  %div.selector-wrapper
+    -# = f.input :user_id
+
+  .form-actions
+    = f.button :submit
+
+-# <form action="/update" method="POST">
+-#     <input id="url" type="text" name="url"/>
+
+-#     <!-- Placeholder that tells Preview where to put the selector-->
+-#     <div class="selector-wrapper"></div>
+-# </form>

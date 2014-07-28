@@ -34,6 +34,9 @@ GEM
     arel (5.0.1.20140414130214)
     awesome_print (1.2.0)
     bcrypt (3.1.7)
+    better_errors (1.1.0)
+      coderay (>= 1.0.0)
+      erubis (>= 2.6.6)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
     builder (3.2.2)
@@ -78,6 +81,10 @@ GEM
       devise (~> 3.2)
     diff-lcs (1.2.5)
     docile (1.1.5)
+    embedly (1.9.1)
+      json
+      oauth
+      querystring
     erubis (2.7.0)
     execjs (2.2.1)
     factory_girl (4.4.0)
@@ -196,6 +203,7 @@ GEM
     pry-stack_explorer (0.4.9.1)
       binding_of_caller (>= 0.7)
       pry (>= 0.9.11)
+    querystring (0.1.0)
     quiet_assets (1.0.3)
       railties (>= 3.1, < 5.0)
     rack (1.5.2)
@@ -354,6 +362,8 @@ DEPENDENCIES
   addressable
   airbrake
   awesome_print
+  better_errors
+  binding_of_caller
   cancan
   capybara-webkit
   coffee-rails
@@ -361,6 +371,7 @@ DEPENDENCIES
   database_cleaner
   devise
   devise-async
+  embedly
   factory_girl_rails
   ffaker
   foundation-rails
