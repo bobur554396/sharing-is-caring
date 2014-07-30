@@ -22,6 +22,14 @@ class ApplicationController < ActionController::Base
   include ErrorReportingConcern
   include AuthorizationErrorsConcern
 
+  # Workaround for cancan strong params load resource and forbidden attributes
+  # https://github.com/ryanb/cancan/issues/835
+  before_filter do
+    resource = controller_path.singularize.gsub('/', '_').to_sym
+    method = "#{resource}_params"
+    params[resource] &&= send(method) if respond_to?(method, true)
+  end
+
   protected
 
   def skip_check_authorization?

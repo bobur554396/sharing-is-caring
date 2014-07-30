@@ -24,7 +24,7 @@ gem 'airbrake'                # use with airbrake.io or errbit
 # gem 'rack-google-analytics'
 
 # Data
-gem 'pg'
+
 gem 'schema_plus'             # add better index and foreign key support
 # gem 'jbuilder'
 
@@ -40,6 +40,7 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jquery-turbolinks'
 gem 'nprogress-rails'
+gem 'rails_autolink'
 
 # CoffeeScript
 # Not needed in production if precompiling assets
@@ -49,6 +50,7 @@ gem 'coffee-rails'
 
 # Design
 gem 'foundation-rails'
+gem 'embedly'
 # gem 'bourbon'
 # gem 'neat'
 # gem 'country_select'
@@ -74,17 +76,19 @@ gem 'sidekiq'
 gem 'devise-async'
 gem 'sinatra', require: false
 
-# Utils
+# Utilss
 gem 'addressable'
 gem 'settingslogic'
+
+
 
 group :development do
   # Docs
   gem 'sdoc', require: false    # bundle exec rake doc:rails
 
   # Errors
-  # gem 'better_errors'
-  # gem 'binding_of_caller'     # extra features for better_errors
+  gem 'better_errors'
+  gem 'binding_of_caller'     # extra features for better_errors
   # gem 'meta_request'          # for rails_panel chrome extension
 
   # Deployment
@@ -97,6 +101,7 @@ group :development do
 end
 
 group :development, :test do
+  gem 'sqlite3'
   # Use spring or zeus
   gem 'spring'                  # keep application running in the background
   gem 'spring-commands-rspec'
@@ -128,6 +133,7 @@ group :development, :test do
 
   # Logging
   gem 'quiet_assets'
+  gem 'annotate'
 end
 
 group :test do
@@ -150,5 +156,8 @@ group :production do
   gem 'memcachier'              # heroku add-on for auto config of dalli
   gem 'unicorn'
   gem 'rails_12factor'          # https://devcenter.heroku.com/articles/rails4
+  gem 'pg'
 end
+
+gem 'simple_hashtag'
 

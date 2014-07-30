@@ -1,0 +1,9 @@
+%div.row
+  = simple_form_for(@micropost) do |f|
+    = f.error_notification
+    %div.small-9.medium-9.columns
+      .form-inputs
+        = f.text_field :content, :id => 'url'
+    %div.medium-3.large-3.columns
+      .form-actions
+        = f.button :submit, 'Add', class: 'button button-secondary button-large button-block button-caps'

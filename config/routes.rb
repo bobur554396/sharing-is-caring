@@ -1,5 +1,8 @@
 # Route prefixes use a single letter to allow for vanity urls of two or more characters
 Rails.application.routes.draw do
+
+  get "hashtags/:hashtag",   to: "hashtags#show",      as: :hashtag
+  get "hashtags",            to: "hashtags#index",     as: :hashtags
   if defined? Sidekiq
     require 'sidekiq/web'
     authenticate :user, lambda {|u| u.is_admin? } do
@@ -32,6 +35,8 @@ Rails.application.routes.draw do
   end
   get devise_prefix => redirect('/a/signup')
 
+  # Microposts
+  resources :microposts
   # User
   resources :users, path: 'u', only: :show do
     resources :authentications, path: 'accounts'

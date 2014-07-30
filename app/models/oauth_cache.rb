@@ -1,3 +1,13 @@
+# == Schema Information
+#
+# Table name: oauth_caches
+#
+#  authentication_id :integer          not null, primary key
+#  data_json         :text             not null
+#  created_at        :datetime
+#  updated_at        :datetime
+#
+
 class OauthCache < ActiveRecord::Base
   self.primary_key = 'authentication_id'
 
