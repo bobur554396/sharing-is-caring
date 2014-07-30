@@ -24,7 +24,7 @@ gem 'airbrake'                # use with airbrake.io or errbit
 # gem 'rack-google-analytics'
 
 # Data
-gem 'pg'
+
 gem 'schema_plus'             # add better index and foreign key support
 # gem 'jbuilder'
 
@@ -101,6 +101,7 @@ group :development do
 end
 
 group :development, :test do
+  gem 'sqlite3'
   # Use spring or zeus
   gem 'spring'                  # keep application running in the background
   gem 'spring-commands-rspec'
@@ -155,6 +156,7 @@ group :production do
   gem 'memcachier'              # heroku add-on for auto config of dalli
   gem 'unicorn'
   gem 'rails_12factor'          # https://devcenter.heroku.com/articles/rails4
+  gem 'pg'
 end
 
 gem 'simple_hashtag'

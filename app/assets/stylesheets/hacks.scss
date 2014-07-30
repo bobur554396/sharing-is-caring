@@ -1,3 +1,84 @@
 // Put CSS hacks here
 $include-html-top-bar-classes: $include-html-classes;
-$topbar-height: 60px;
+
+$topbar-height: 76px;
+
+h1, h2, h3, h4, h5, h6 {
+   font-family: 'Varela Round', sans-serif;
+   color: #323f4f;
+}
+
+.top-bar {
+   margin-bottom: 20px;
+   height: $topbar-height;
+   $padding: 13px 0;
+   background: white;
+   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.08);
+   padding: 32px 38px 26px 38px;
+   > img {
+      width: 50px;
+      float: left;
+      bottom: 20px;
+      position: relative;
+   }
+   .top-bar-section {
+      .right {
+         background: transparent !important;
+         li {
+            background: transparent !important;
+            a {
+               color: #fc4444;
+               font-family: 'Varela Round', sans-serif;
+               background: transparent;
+               font-size: 110%;
+            }
+         }
+      }
+   }
+   .name {
+      h1 {
+         // padding: 8px 15px;
+         padding: 0;
+         line-height: 1.4;
+         a {
+            color: #fc4444;
+            font-family: 'Varela Round', sans-serif;
+         }
+      }
+   }
+}
+
+.resource-feed {
+   hr {
+      border-bottom: 1px dotted #eee;
+      border-top: none;
+   }
+   .post-meta {
+      img {
+         float: left;
+      }
+      .author-name {
+         font-family: Oxygen;
+         text-transform: uppercase;
+      }
+      .post-tags {
+         clear: both;
+         padding-top: 5px;
+      }
+   }
+}
+
+a.hashtag {
+   @include label($padding: 4px 8px, $text_size: 13px, $bg: #fc4444, $radius: 3px);
+   margin: 5px 1px 0;
+   font-family: Oxygen;
+   font-weight: 300;
+}
+
+.post-content {
+   color: white;
+}
+
+.button, input[type="submit"] {
+   border-radius: 3px;
+}

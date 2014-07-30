@@ -10,10 +10,9 @@
 #
 
 class Micropost < ActiveRecord::Base
-  belongs_to :user
   include SimpleHashtag::Hashtaggable
   hashtaggable_attribute :content
-
+  belongs_to :user
 
   validates_presence_of :user_id, :content
 

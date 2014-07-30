@@ -9,7 +9,7 @@ class CreateUsers < ActiveRecord::Migration
       # Devise
 
       ## Database authenticatable
-      t.string :email,              null: false, default: '', index: { unique: true, case_sensitive: false }
+      t.string :email,              null: false, default: '', index: { unique: true}
       t.string :encrypted_password, null: false, default: ''
 
       ## Recoverable

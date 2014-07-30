@@ -30,9 +30,10 @@ class MicropostsController < ApplicationController
     @user = current_user
     @micropost = @user.microposts.new(micropost_params)
     @micropost.save
+    @hashtags = @micropost.hashtags
 
     if @micropost.save
-      redirect_to @micropost, notice: 'Micropost was successfully created.'
+      redirect_to '/', notice: 'Micropost was successfully created.'
     else
       render :new
     end

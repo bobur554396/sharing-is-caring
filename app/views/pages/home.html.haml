@@ -1,7 +1,36 @@
-%h1= I18n.t('brand.name')
+- require 'rails_autolink'
+-# %h1= I18n.t('brand.name')
 
-%p
-  Curated, targed resources for members of the DBC Community.
+-# %p
+-#   Curated, targed resources for members of the DBC Community.
+
+
+
+%div.row
+  %div.large-3.columns
+    %h3 Hashtags
+    - all_hashtags_alphabetized.each do |hashtag|
+      = link_to hashtag.name, hashtag_path(hashtag.name), :class => 'hashtag'
+  %div.large-9.columns
+    - if user_signed_in?
+      = render 'microposts/form'
+    - else
+      %h3 Log In to Post
+    %div.resource-feed.row
+      - all_microposts.each do |post|
+        %div.post-meta.large-3.medium-3.columns
+          by
+          %span.author-name
+            = post.author.first_name
+          - if post.hashtags
+            %div.post-tags
+              - post.hashtags.each do |hashtag|
+                = link_to hashtag.name, hashtag_path(hashtag.name), :class => 'hashtag'
+
+        %div.post-content.large-9.medium-9.columns
+          = auto_link(post.content, :html => { :class => 'embedly-card', :target => '_blank' })
+        %hr
+
 
 
 

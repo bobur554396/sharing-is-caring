@@ -16,25 +16,25 @@
 @import "footer";
 @import "hacks";
 
+@import "google-io";
+
 // Plugins
 @import "nprogress";
 @import "jquery.preview";
-
-$topbar-height: 120px;
 
 //
 // Minor Tweaks
 //
 
-.top-bar {
-   margin-bottom: 20px;
-   height: $topbar-height;
-   .name {
-      h1 {
-         padding: 8px 15px;
-      }
-   }
-}
+// .top-bar {
+//    margin-bottom: 20px;
+//    height: $topbar-height;
+//    .name {
+//       h1 {
+//          padding: 8px 15px;
+//       }
+//    }
+// }
 
 // Postion loading spinner at bottom right
 #nprogress .spinner {

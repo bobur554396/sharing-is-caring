@@ -11,10 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140728190547) do
-
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
+ActiveRecord::Schema.define(version: 20140728195650) do
 
   create_table "users", force: true do |t|
     t.string   "first_name"
@@ -41,7 +38,7 @@ ActiveRecord::Schema.define(version: 20140728190547) do
     t.datetime "updated_at"
     t.boolean  "is_admin"
     t.index ["confirmation_token"], :name => "index_users_on_confirmation_token", :unique => true
-    t.index ["email"], :name => "index_users_on_email", :unique => true, :case_sensitive => false
+    t.index ["email"], :name => "index_users_on_email", :unique => true
     t.index ["is_admin"], :name => "index_users_on_is_admin"
     t.index ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
     t.index ["unlock_token"], :name => "index_users_on_unlock_token", :unique => true
@@ -61,23 +58,8 @@ ActiveRecord::Schema.define(version: 20140728190547) do
     t.datetime "updated_at"
     t.index ["provider"], :name => "index_authentications_on_provider"
     t.index ["user_id"], :name => "fk__authentications_user_id"
+    t.index ["user_id"], :name => "k__authentications_user_id"
     t.foreign_key ["user_id"], "users", ["id"], :on_update => :no_action, :on_delete => :no_action, :name => "fk_authentications_user_id"
-  end
-
-  create_table "hashtags", force: true do |t|
-    t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.index ["name"], :name => "index_hashtags_on_name"
-  end
-
-  create_table "hashtaggings", force: true do |t|
-    t.integer "hashtag_id"
-    t.integer "hashtaggable_id"
-    t.string  "hashtaggable_type"
-    t.index ["hashtag_id"], :name => "index_hashtaggings_on_hashtag_id"
-    t.index ["hashtaggable_id", "hashtaggable_type"], :name => "index_hashtaggings_hashtaggable_id_hashtaggable_type"
-    t.foreign_key ["hashtag_id"], "hashtags", ["id"], :on_update => :no_action, :on_delete => :no_action, :name => "fk_hashtaggings_hashtag_id"
   end
 
   create_table "microposts", force: true do |t|
@@ -105,10 +87,26 @@ ActiveRecord::Schema.define(version: 20140728190547) do
     t.integer  "item"
     t.string   "table"
     t.integer  "month",      limit: 2
-    t.integer  "year",       limit: 8
+    t.integer  "year",       limit: 5
     t.datetime "created_at"
     t.datetime "updated_at"
     t.index ["item", "table", "month", "year"], :name => "index_rails_admin_histories"
+  end
+
+  create_table "simple_hashtag_hashtaggings", force: true do |t|
+    t.integer "hashtag_id"
+    t.integer "hashtaggable_id"
+    t.string  "hashtaggable_type"
+    t.index ["hashtag_id"], :name => "index_simple_hashtag_hashtaggings_on_hashtag_id"
+    t.index ["hashtaggable_id", "hashtaggable_type"], :name => "index_hashtaggings_hashtaggable_id_hashtaggable_type"
+    t.foreign_key ["hashtag_id"], "hashtags", ["id"], :on_update => :no_action, :on_delete => :no_action, :name => "fk_simple_hashtag_hashtaggings_hashtag_id"
+  end
+
+  create_table "simple_hashtag_hashtags", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.index ["name"], :name => "index_simple_hashtag_hashtags_on_name"
   end
 
 end
