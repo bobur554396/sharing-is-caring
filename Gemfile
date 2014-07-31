@@ -160,4 +160,5 @@ group :production do
 end
 
 gem 'simple_hashtag'
+gem 'paperclip'
 
