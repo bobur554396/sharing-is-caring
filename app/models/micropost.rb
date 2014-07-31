@@ -11,8 +11,10 @@
 
 class Micropost < ActiveRecord::Base
   include SimpleHashtag::Hashtaggable
+
   hashtaggable_attribute :content
   belongs_to :user
+  has_many :documents, dependent: :destroy
 
   validates_presence_of :user_id, :content
 
