@@ -11,12 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140730170942) do
-
-  create_table "attachments", force: true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
+ActiveRecord::Schema.define(version: 20140730172324) do
 
   create_table "users", force: true do |t|
     t.string   "first_name"
@@ -49,6 +44,33 @@ ActiveRecord::Schema.define(version: 20140730170942) do
     t.index ["unlock_token"], :name => "index_users_on_unlock_token", :unique => true
   end
 
+  create_table "microposts", force: true do |t|
+    t.string   "content"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "token"
+    t.index ["user_id", "created_at"], :name => "index_microposts_on_user_id_and_created_at"
+    t.index ["user_id"], :name => "fk__microposts_user_id"
+    t.foreign_key ["user_id"], "users", ["id"], :on_update => :no_action, :on_delete => :no_action, :name => "fk_microposts_user_id"
+  end
+
+  create_table "attachments", force: true do |t|
+    t.string   "title"
+    t.string   "description"
+    t.string   "document"
+    t.integer  "micropost_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "micropost_token"
+    t.string   "document_file_name"
+    t.string   "document_content_type"
+    t.integer  "document_file_size"
+    t.datetime "document_updated_at"
+    t.index ["micropost_id"], :name => "fk__attachments_micropost_id"
+    t.foreign_key ["micropost_id"], "microposts", ["id"], :on_update => :no_action, :on_delete => :no_action, :name => "fk_attachments_micropost_id"
+  end
+
   create_table "authentications", force: true do |t|
     t.integer  "user_id"
     t.string   "provider",      null: false
@@ -65,16 +87,6 @@ ActiveRecord::Schema.define(version: 20140730170942) do
     t.index ["user_id"], :name => "fk__authentications_user_id"
     t.index ["user_id"], :name => "k__authentications_user_id"
     t.foreign_key ["user_id"], "users", ["id"], :on_update => :no_action, :on_delete => :no_action, :name => "fk_authentications_user_id"
-  end
-
-  create_table "microposts", force: true do |t|
-    t.string   "content"
-    t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.index ["user_id", "created_at"], :name => "index_microposts_on_user_id_and_created_at"
-    t.index ["user_id"], :name => "fk__microposts_user_id"
-    t.foreign_key ["user_id"], "users", ["id"], :on_update => :no_action, :on_delete => :no_action, :name => "fk_microposts_user_id"
   end
 
   create_table "oauth_caches", id: false, force: true do |t|

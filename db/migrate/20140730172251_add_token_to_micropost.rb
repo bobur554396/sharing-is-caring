@@ -1,5 +1,5 @@
 class AddTokenToMicropost < ActiveRecord::Migration
   def change
-      add_column :galleries, :token, :string
+      add_column :microposts, :token, :string
   end
 end

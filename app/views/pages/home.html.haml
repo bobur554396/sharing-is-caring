@@ -24,6 +24,10 @@
 
         %div.post-content.large-9.medium-9.columns
           = auto_link(post.content, :html => { :class => 'embedly-card', :target => '_blank' })
+          - if post.attachments
+            %div.post-attachments
+              - post.attachments.each do |attachment|
+                = link_to attachment_title(post), attachment.document.url
         %hr
 
 

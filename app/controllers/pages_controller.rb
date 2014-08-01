@@ -26,6 +26,9 @@ class PagesController < ApplicationController
 
   def home
     @micropost = Micropost.new
+    @hashtag = SimpleHashtag::Hashtag.new
+    @attachment = Attachment.new
+
   end
 
 end

@@ -19,6 +19,9 @@ class MicropostsController < ApplicationController
   def new
     @user = current_user
     @micropost = @user.microposts.new
+    @hashtag = SimpleHashtag::Hashtag.new
+    @micropost.hashtags << @hashtag
+    @attachment = @micropost.attachments.new
   end
 
   # GET /microposts/1/edit
@@ -31,8 +34,14 @@ class MicropostsController < ApplicationController
     @micropost = @user.microposts.new(micropost_params)
     @micropost.save
     @hashtags = @micropost.hashtags
+    # @attachments = @micropost.attachments
 
     if @micropost.save
+      if params[:documents]
+        params[:documents].each do |document|
+          @micropost.attachments.create(document: document)
+        end
+      end
       redirect_to '/', notice: 'Micropost was successfully created.'
     else
       render :new
@@ -62,6 +71,6 @@ class MicropostsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def micropost_params
-      params.require(:micropost).permit(:content, :user_id, :hashtag_id)
+      params.require(:micropost).permit(:content, :user_id, :hashtag_id, :documents)
     end
 end
