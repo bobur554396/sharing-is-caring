@@ -39,7 +39,7 @@ class MicropostsController < ApplicationController
     if @micropost.save
       if params[:documents]
         params[:documents].each do |document|
-          @micropost.attachments.create(document: document)
+          @micropost.attachments.create(document: document, title: params[:title], description: params[:description])
         end
       end
       redirect_to '/', notice: 'Micropost was successfully created.'
@@ -71,6 +71,6 @@ class MicropostsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def micropost_params
-      params.require(:micropost).permit(:content, :user_id, :hashtag_id, :documents)
+      params.require(:micropost).permit(:content, :user_id, :hashtag_id, :documents, :title, :description )
     end
 end

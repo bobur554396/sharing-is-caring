@@ -1,0 +1,21 @@
+%a.button(href="#" data-reveal-id="attachment") Attachment
+%div#attachment.reveal-modal.small(data-reveal)
+  %div.row
+    = simple_form_for(@micropost, :html => {:multipart => true}) do |f|
+      = f.error_notification
+      %div.small-6.medium-12.small-centered.columns
+        .form-inputs
+          = label :title, "title"
+          = text_field_tag :title
+          = label :description, "description"
+          = text_area_tag :description
+          = f.label :content, "tags"
+          = f.text_field :content, :id => 'url'
+      %row
+        %div.small-6.medium-12.columns
+          .form-inputs
+            = file_field_tag "documents[]", type: :file, multiple: true
+        %div.medium-12.large-3.columns
+          .form-actions
+            = f.button :submit, 'Add', class: 'button button-secondary button-large button-block button-caps'
+  %a.close-reveal-modal &#215;

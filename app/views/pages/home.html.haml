@@ -9,6 +9,7 @@
   %div.large-9.medium-8.columns
     - if user_signed_in?
       = render 'microposts/form'
+      = render 'attachments/form'
     - else
       %h3 Log In to Post
     %div.resource-feed.row
@@ -21,14 +22,16 @@
             %div.post-tags
               - post.hashtags.each do |hashtag|
                 = link_to hashtag.name, hashtag_path(hashtag.name), :class => 'hashtag'
-
         %div.post-content.large-9.medium-9.columns
-          = auto_link(post.content, :html => { :class => 'embedly-card', :target => '_blank' })
-          - if post.attachments
-            %div.post-attachments
-              - post.attachments.each do |attachment|
-                = link_to attachment_title(post), attachment.document.url
+          - if post.has_link?
+            = auto_link(post.content_link, :html => { :class => 'embedly-card', :target => '_blank' })
+          - elsif post.has_attachments?
+            %h3
+              = link_to post.attachment_title, post.attachment_url
+            %p
+              = post.attachment_description
         %hr
+
 
 
 
