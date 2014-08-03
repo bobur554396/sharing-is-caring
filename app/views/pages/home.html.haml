@@ -1,8 +1,4 @@
 - require 'rails_autolink'
--# %h1= I18n.t('brand.name')
-
--# %p
--#   Curated, targed resources for members of the DBC Community.
 
 %div.row
   = render 'layouts/hashtags_sidebar'
@@ -27,9 +23,13 @@
             = auto_link(post.content_link, :html => { :class => 'embedly-card', :target => '_blank' })
           - elsif post.has_attachments?
             %h3
-              = link_to post.attachment_title, post.attachment_url
+              = post.attachment_title
             %p
               = post.attachment_description
+            - post.attachments.each do |attachment|
+              %i.fi-paperclip
+              = link_to "#{post.attachment_title.downcase}-#{post.attachments.index(attachment) + 1}", post.attachment_url, :target => '_blank'
+              %br
         %hr
 
 
