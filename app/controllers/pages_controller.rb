@@ -27,8 +27,8 @@ class PagesController < ApplicationController
   def home
     @micropost = Micropost.new
     @hashtag = SimpleHashtag::Hashtag.new
-    @attachment = Attachment.new
-
+    @attachment = @micropost.attachments.new
+    @posts = Micropost.all.order(:created_at).reverse_order
   end
 
 end

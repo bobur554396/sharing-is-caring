@@ -8,31 +8,10 @@
       = render 'attachments/form'
     - else
       %h3 Log In to Post
-    %div.resource-feed.row
-      - all_microposts.each do |post|
-        %div.post-meta.large-3.medium-9.columns
-          by
-          %span.author-name
-            = post.author.first_name
-          - if post.hashtags
-            %div.post-tags
-              - post.hashtags.each do |hashtag|
-                = link_to hashtag.name, hashtag_path(hashtag.name), :class => 'hashtag'
-        %div.post-content.large-9.medium-9.columns
-          - if post.has_link?
-            = auto_link(post.content_link, :html => { :class => 'embedly-card', :target => '_blank' })
-          - elsif post.has_attachments?
-            %h3
-              = post.attachment_title
-            %p
-              = post.attachment_description
-            - post.attachments.each do |attachment|
-              %i.fi-paperclip
-              = link_to "#{post.attachment_title.downcase}-#{post.attachments.index(attachment) + 1}", post.attachment_url, :target => '_blank'
-              %br
-        %hr
+    = render 'layouts/resource_feed', posts: @posts
 
 
 
 
-
+-# :javascript
+-#     $(document).foundation();

@@ -84,7 +84,6 @@ ActiveRecord::Schema.define(version: 20140730172324) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.index ["provider"], :name => "index_authentications_on_provider"
-    t.index ["user_id"], :name => "fk__authentications_user_id"
     t.index ["user_id"], :name => "k__authentications_user_id"
     t.foreign_key ["user_id"], "users", ["id"], :on_update => :no_action, :on_delete => :no_action, :name => "fk_authentications_user_id"
   end

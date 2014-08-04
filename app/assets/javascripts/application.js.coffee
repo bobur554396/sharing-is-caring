@@ -29,3 +29,9 @@
 #= require avatar.errors
 
 
+$ ->
+    flashCallback = ->
+      $(".alert-box").fadeOut()
+    $(".alert-box").bind 'click', (ev) =>
+      $(".alert-box").fadeOut()
+    setTimeout flashCallback, 3000

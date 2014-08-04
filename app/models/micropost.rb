@@ -23,6 +23,10 @@ class Micropost < ActiveRecord::Base
 
   validates_presence_of :user_id, :content
 
+  # scope :tagged, -> {where}
+
+  # def
+
   def author
     User.find(self.user_id)
   end
