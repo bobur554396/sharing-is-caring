@@ -20,6 +20,7 @@ class Attachment < ActiveRecord::Base
   # attr_accessible :title, :description, :micropost_id, :document
 
   belongs_to :micropost
+  # has_many :documents, through: :attachements, source: :document
 
   has_attached_file :document,
     :thumbnail => "60x60#",

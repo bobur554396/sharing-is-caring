@@ -1,4 +1,4 @@
 %div.large-3.medium-4.columns
-  %h3 Hashtags
+  %h2 Hashtags
   - all_hashtags_alphabetized.each do |hashtag|
     = link_to hashtag.name, hashtag_path(hashtag.name), :class => 'hashtag'

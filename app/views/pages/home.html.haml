@@ -1,35 +1,17 @@
 - require 'rails_autolink'
--# %h1= I18n.t('brand.name')
-
--# %p
--#   Curated, targed resources for members of the DBC Community.
 
 %div.row
   = render 'layouts/hashtags_sidebar'
   %div.large-9.medium-8.columns
     - if user_signed_in?
       = render 'microposts/form'
+      = render 'attachments/form'
     - else
       %h3 Log In to Post
-    %div.resource-feed.row
-      - all_microposts.each do |post|
-        %div.post-meta.large-3.medium-9.columns
-          by
-          %span.author-name
-            = post.author.first_name
-          - if post.hashtags
-            %div.post-tags
-              - post.hashtags.each do |hashtag|
-                = link_to hashtag.name, hashtag_path(hashtag.name), :class => 'hashtag'
-
-        %div.post-content.large-9.medium-9.columns
-          = auto_link(post.content, :html => { :class => 'embedly-card', :target => '_blank' })
-          - if post.attachments
-            %div.post-attachments
-              - post.attachments.each do |attachment|
-                = link_to attachment_title(post), attachment.document.url
-        %hr
+    = render 'layouts/resource_feed', posts: @posts
 
 
 
 
+-# :javascript
+-#     $(document).foundation();

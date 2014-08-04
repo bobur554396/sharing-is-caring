@@ -7,6 +7,8 @@
 -#   <p>There is no match for the <em><%= params[:hashtag] %></em> hashtag.</p>
 -# <% end -%>
 
-%h1 posts tagged coffeescript
+%h1 posts tagged <b>#{@hashtag}</b>
 %div.row
   = render 'layouts/hashtags_sidebar'
+  %div.large-9.medium-8.columns
+    = render 'layouts/resource_feed', posts: @hashtagged
