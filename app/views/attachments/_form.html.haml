@@ -1,7 +1,7 @@
 <a class="button" data-reveal-id="attachment" href="#">Attachment</a>
 %div#attachment.reveal-modal.small(data-reveal)
   %div.row
-    = simple_form_for(@micropost, :html => {:multipart => true, :'data-abide'=> ''}) do |f|
+    = simple_form_for(@resource, :html => {:multipart => true, :'data-abide'=> ''}) do |f|
       = f.error_notification
       %div.small-6.medium-12.small-centered.columns
         = fields_for 'attachment' do |ff|
@@ -31,7 +31,7 @@
 -# <a class="button" data-reveal-id="attachment" href="#">Attachment</a>
 -# %div#attachment.reveal-modal.small(data-reveal)
 -#   %div.row
--#     = simple_form_for(@micropost, :html => {:multipart => true, :'data-abide'=> ''}) do |f|
+-#     = simple_form_for(@resource, :html => {:multipart => true, :'data-abide'=> ''}) do |f|
 -#       = f.error_notification
 -#       %div.small-6.medium-12.small-centered.columns
 -#         .form-inputs

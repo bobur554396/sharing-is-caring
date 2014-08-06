@@ -16,8 +16,8 @@ module ApplicationHelper
     end
   end
 
-  def all_microposts
-    Micropost.all.order(:created_at).reverse_order
+  def all_resources
+    Resource.all.order(:created_at).reverse_order
   end
 
   def all_hashtags_alphabetized

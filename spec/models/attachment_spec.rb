@@ -6,10 +6,10 @@
 #  title                 :string(255)
 #  description           :string(255)
 #  document              :string(255)
-#  micropost_id          :integer
+#  resource_id          :integer
 #  created_at            :datetime
 #  updated_at            :datetime
-#  micropost_token       :string(255)
+#  resource_token       :string(255)
 #  document_file_name    :string(255)
 #  document_content_type :string(255)
 #  document_file_size    :integer

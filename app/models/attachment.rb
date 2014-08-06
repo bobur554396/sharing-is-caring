@@ -6,10 +6,10 @@
 #  title                 :string(255)
 #  description           :string(255)
 #  document              :string(255)
-#  micropost_id          :integer
+#  resource_id          :integer
 #  created_at            :datetime
 #  updated_at            :datetime
-#  micropost_token       :string(255)
+#  resource_token       :string(255)
 #  document_file_name    :string(255)
 #  document_content_type :string(255)
 #  document_file_size    :integer
@@ -17,9 +17,9 @@
 #
 
 class Attachment < ActiveRecord::Base
-  # attr_accessible :title, :description, :micropost_id, :document
+  # attr_accessible :title, :description, :resource_id, :document
 
-  belongs_to :micropost
+  belongs_to :resource
   # has_many :documents, through: :attachements, source: :document
 
   has_attached_file :document,

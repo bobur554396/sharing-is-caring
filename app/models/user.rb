@@ -32,8 +32,8 @@ class User < ActiveRecord::Base
   include Concerns::UserImagesConcern
 
 
-  has_many :microposts, dependent: :destroy
-  accepts_nested_attributes_for :microposts
+  has_many :resources, dependent: :destroy
+  accepts_nested_attributes_for :resources
 
 
   devise :database_authenticatable, :registerable,

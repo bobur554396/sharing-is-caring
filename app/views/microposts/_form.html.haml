@@ -2,7 +2,7 @@
 <a class="button" data-reveal-id="link" href="#">Link</a>
 %div#link.reveal-modal.small(data-reveal)
   %div.row
-    = simple_form_for(@micropost, :html => {:multipart => true, :'data-abide' => ''}) do |f|
+    = simple_form_for(@resource, :html => {:multipart => true, :'data-abide' => ''}) do |f|
       = f.error_notification
       %div.small-9.medium-9.small-centered.columns
         .form-inputs

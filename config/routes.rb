@@ -35,14 +35,14 @@
 #                          GET      /a/unlock(.:format)                     users/unlocks#show
 #                user_root GET      /a/after(.:format)                      users/registrations#after_auth
 #                        a GET      /a(.:format)                            redirect(301, /a/signup)
-#               microposts GET      /microposts(.:format)                   microposts#index
-#                          POST     /microposts(.:format)                   microposts#create
-#            new_micropost GET      /microposts/new(.:format)               microposts#new
-#           edit_micropost GET      /microposts/:id/edit(.:format)          microposts#edit
-#                micropost GET      /microposts/:id(.:format)               microposts#show
-#                          PATCH    /microposts/:id(.:format)               microposts#update
-#                          PUT      /microposts/:id(.:format)               microposts#update
-#                          DELETE   /microposts/:id(.:format)               microposts#destroy
+#               resources GET      /resources(.:format)                   resources#index
+#                          POST     /resources(.:format)                   resources#create
+#            new_resource GET      /resources/new(.:format)               resources#new
+#           edit_resource GET      /resources/:id/edit(.:format)          resources#edit
+#                resource GET      /resources/:id(.:format)               resources#show
+#                          PATCH    /resources/:id(.:format)               resources#update
+#                          PUT      /resources/:id(.:format)               resources#update
+#                          DELETE   /resources/:id(.:format)               resources#destroy
 #              attachments GET      /attachments(.:format)                  attachments#index
 #                          POST     /attachments(.:format)                  attachments#create
 #           new_attachment GET      /attachments/new(.:format)              attachments#new
@@ -116,8 +116,8 @@ Rails.application.routes.draw do
   end
   get devise_prefix => redirect('/a/signup')
 
-  # Microposts & Attachments
-  resources :microposts
+  # Resources & Attachments
+  resources :resources
   resources :attachments
   # User
   resources :users, path: 'u', only: :show do

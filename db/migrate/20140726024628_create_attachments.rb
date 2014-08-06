@@ -4,7 +4,7 @@ class CreateAttachments < ActiveRecord::Migration
       t.string :title
       t.string :description
       t.string :document
-      t.integer :micropost_id
+      t.integer :resource_id
 
       t.timestamps
     end
