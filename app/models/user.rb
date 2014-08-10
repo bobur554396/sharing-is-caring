@@ -30,10 +30,12 @@
 
 class User < ActiveRecord::Base
   include Concerns::UserImagesConcern
+  
+  has_many :shares, foreign_key: :author_id, dependent: :destroy
+  accepts_nested_attributes_for :shares
 
-
-  has_many :microposts, dependent: :destroy
-  accepts_nested_attributes_for :microposts
+  # has_many :microposts, dependent: :destroy
+  # accepts_nested_attributes_for :microposts
 
 
   devise :database_authenticatable, :registerable,
@@ -45,6 +47,12 @@ class User < ActiveRecord::Base
       includes(:oauth_cache).group_by {|a| a.provider }
     end
   end
+  
+
+  
+  # has_many :attachments, foreign_key: :author_id
+  # has_many :links, foreign_key: :author_id
+  
 
 
   after_create :send_welcome_emails

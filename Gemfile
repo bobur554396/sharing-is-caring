@@ -161,4 +161,4 @@ end
 
 gem 'simple_hashtag'
 gem 'paperclip'
-
+gem 'active_record-acts_as'

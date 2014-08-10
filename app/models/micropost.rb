@@ -7,7 +7,6 @@
 #  user_id    :integer
 #  created_at :datetime
 #  updated_at :datetime
-#  token      :string(255)
 #
 
 class Micropost < ActiveRecord::Base
@@ -16,12 +15,12 @@ class Micropost < ActiveRecord::Base
 
 
   hashtaggable_attribute :content
-  belongs_to :user
-  has_many :attachments, dependent: :destroy, inverse_of: :micropost
+  # belongs_to :user
+  # has_many :attachments, dependent: :destroy, inverse_of: :micropost
   # has_many :documents, through: :attachments
-  accepts_nested_attributes_for :attachments
+  # accepts_nested_attributes_for :attachments
 
-  validates_presence_of :user_id, :content
+  # validates_presence_of :user_id, :content
 
   # scope :tagged, -> {where}
 
