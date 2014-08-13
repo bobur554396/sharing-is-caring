@@ -25,10 +25,8 @@ class PagesController < ApplicationController
   end
 
   def home
-    @resource = Resource.new
-    @hashtag = SimpleHashtag::Hashtag.new
-    @attachment = @resource.attachments.new
-    @posts = Resource.all.order(:created_at).reverse_order
+    @share = Share.new
+    @shares = Share.all
   end
 
 end

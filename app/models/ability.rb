@@ -8,14 +8,14 @@ class Ability
 
   def initialize(user = User.new)
     can :manage, User, id: user.id
-    can :read, Resource
-    can :create, Resource
-    can :index, Resource
-    can :new, Resource
-    can :create, Resource, user_id: user.id
-    can :new, Resource, user_id: user.id
-    can :destroy, Resource, user_id: user.id
-    can :update, Resource, user_id: user.id
+    can :read, Share
+    can :create, Share
+    can :index, Share
+    can :new, Share
+    can :create, Share, user_id: user.id
+    can :new, Share, user_id: user.id
+    can :destroy, Share, user_id: user.id
+    can :update, Share, user_id: user.id
     can :manage, Authentication, user_id: user.id
 
     if user.is_admin? && defined? RailsAdmin

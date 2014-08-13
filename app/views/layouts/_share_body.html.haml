@@ -1,0 +1,33 @@
+-# -# %a.button(href="#" data-reveal-id="link") Link
+-# <a class="button" data-reveal-id="link" href="#">Link</a>
+-# %div#link.reveal-modal.small(data-reveal)
+-#   %div.row
+-#     = simple_form_for(@share, :html => {:multipart => true, :'data-abide' => ''}) do |f|
+-#       = f.error_notification
+-#       %div.small-9.medium-9.small-centered.columns
+-#         .form-inputs
+-#           = f.label :content, "link & tags"
+-#           = f.text_field :content, :id => 'url', :required => true
+-#           %small.error field is required
+-#       %div.medium-3.large-3.columns
+-#         .form-actions
+-#           = f.submit 'Add', class: 'button button-secondary button-large button-block button-caps'
+-#   %a.close-reveal-modal &#215;
+-# 
+
+
+-# - require 'rails_autolink'
+-# 
+-# = link_to 'New Micropost', new_micropost_path
+-# %br
+-# 
+-# %h1 Recent Shares
+-# %div.resource-feed.row
+-#   - @shares.each do |post|
+-#     %div.post-content
+-#       = auto_link(post.content, :html => { :class => 'embedly-card', :target => '_blank' })
+-#     %div.post-meta
+-#       = image_tag(post.author.image_url)
+-#       %br
+-#       = post.author.first_name
+-#     %hr

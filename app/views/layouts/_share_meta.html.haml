@@ -1,0 +1,8 @@
+%div.post-meta.large-3.medium-9.columns
+  by
+  %span.author-name
+    = post.author.first_name
+  - if post.hashtags
+    %div.post-tags
+      - post.hashtags.each do |hashtag|
+        = link_to hashtag.name, hashtag_path(hashtag.name), :class => 'hashtag'

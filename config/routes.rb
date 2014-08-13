@@ -35,22 +35,14 @@
 #                          GET      /a/unlock(.:format)                     users/unlocks#show
 #                user_root GET      /a/after(.:format)                      users/registrations#after_auth
 #                        a GET      /a(.:format)                            redirect(301, /a/signup)
-#               resources GET      /resources(.:format)                   resources#index
-#                          POST     /resources(.:format)                   resources#create
-#            new_resource GET      /resources/new(.:format)               resources#new
-#           edit_resource GET      /resources/:id/edit(.:format)          resources#edit
-#                resource GET      /resources/:id(.:format)               resources#show
-#                          PATCH    /resources/:id(.:format)               resources#update
-#                          PUT      /resources/:id(.:format)               resources#update
-#                          DELETE   /resources/:id(.:format)               resources#destroy
-#              attachments GET      /attachments(.:format)                  attachments#index
-#                          POST     /attachments(.:format)                  attachments#create
-#           new_attachment GET      /attachments/new(.:format)              attachments#new
-#          edit_attachment GET      /attachments/:id/edit(.:format)         attachments#edit
-#               attachment GET      /attachments/:id(.:format)              attachments#show
-#                          PATCH    /attachments/:id(.:format)              attachments#update
-#                          PUT      /attachments/:id(.:format)              attachments#update
-#                          DELETE   /attachments/:id(.:format)              attachments#destroy
+#                   shares GET      /shares(.:format)                       shares#index
+#                          POST     /shares(.:format)                       shares#create
+#                new_share GET      /shares/new(.:format)                   shares#new
+#               edit_share GET      /shares/:id/edit(.:format)              shares#edit
+#                    share GET      /shares/:id(.:format)                   shares#show
+#                          PATCH    /shares/:id(.:format)                   shares#update
+#                          PUT      /shares/:id(.:format)                   shares#update
+#                          DELETE   /shares/:id(.:format)                   shares#destroy
 #     user_authentications GET      /u/:user_id/accounts(.:format)          authentications#index
 #                          POST     /u/:user_id/accounts(.:format)          authentications#create
 #  new_user_authentication GET      /u/:user_id/accounts/new(.:format)      authentications#new
@@ -60,11 +52,11 @@
 #                          PUT      /u/:user_id/accounts/:id(.:format)      authentications#update
 #                          DELETE   /u/:user_id/accounts/:id(.:format)      authentications#destroy
 #                     user GET      /u/:id(.:format)                        users#show
-#                user_home GET      /home(.:format)                         users#show
+#                user_home GET      /                                       users#show
 #                     test GET      /p/test(.:format)                       pages#test
 #                  p_email GET      /p/email(.:format)                      pages#email
 #                          GET      /robots.:format                         robots#index
-#                     root GET      /                                       pages#home
+#                     root GET      /                                       dashboards#show
 #
 # Routes for RailsAdmin::Engine:
 #   dashboard GET         /                                      rails_admin/main#dashboard
@@ -116,14 +108,15 @@ Rails.application.routes.draw do
   end
   get devise_prefix => redirect('/a/signup')
 
-  # Resources & Attachments
-  resources :resources
-  resources :attachments
+  # Shares & Attachments
+
+  resources :shares
+  # resources :attachments
   # User
   resources :users, path: 'u', only: :show do
     resources :authentications, path: 'accounts'
   end
-  get '/home' => 'users#show', as: 'user_home'
+  get '/' => 'users#show', as: 'user_home'
 
   # Dummy preview pages for testing.
   get '/p/test' => 'pages#test', as: 'test'
@@ -131,5 +124,5 @@ Rails.application.routes.draw do
 
   get 'robots.:format' => 'robots#index'
 
-  root 'pages#home'
+  root 'dashboards#show'
 end

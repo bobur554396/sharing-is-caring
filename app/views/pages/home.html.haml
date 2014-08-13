@@ -1,16 +1,17 @@
-- require 'rails_autolink'
+-# - require 'rails_autolink'
+-# 
+-# %div.row
+-#   = render 'layouts/hashtags_sidebar'
+-#   %div.large-9.medium-8.columns
+-#     - if user_signed_in?
+-#       = render 'microposts/form'
+-#       = render 'attachments/form'
+-#     - else
+-#       %h3 Log In to Post
+-#     = render 'layouts/resource_feed', posts: @posts
+-# 
 
-%div.row
-  %div.large-9.medium-8.columns
-  - if user_signed_in?
-    %div.post-options.text-center
-      %div.feed-heading
-        %h1#heading-share &nbsp;
-        = image_tag('sharing-is-caring.svg')
-        %h1#heading-resources &nbsp;
-        = render 'resources/form'
-        = render 'attachments/form'
-  - else
-    %h3 Log In to Post
-    = render 'layouts/resource_feed', posts: @posts
-  = render 'layouts/hashtags_sidebar'
+
+
+-# :javascript
+-#     $(document).foundation();

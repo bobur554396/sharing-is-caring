@@ -2,18 +2,8 @@
 #
 # Table name: attachments
 #
-#  id                    :integer          not null, primary key
-#  title                 :string(255)
-#  description           :string(255)
-#  document              :string(255)
-#  resource_id          :integer
-#  created_at            :datetime
-#  updated_at            :datetime
-#  resource_token       :string(255)
-#  document_file_name    :string(255)
-#  document_content_type :string(255)
-#  document_file_size    :integer
-#  document_updated_at   :datetime
+#  id    :integer          not null, primary key
+#  token :string(255)
 #
 
 # Read about factories at https://github.com/thoughtbot/factory_girl

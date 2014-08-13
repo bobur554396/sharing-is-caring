@@ -1,0 +1,5 @@
+- require 'rails_autolink'
+= render 'shared/share_meta', share: share
+%div.post-content.large-9.medium-9.columns
+  = auto_link(share.content, :html => { :class => 'embedly-card', :target => '_blank' }) 
+
