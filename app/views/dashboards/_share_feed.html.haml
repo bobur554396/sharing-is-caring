@@ -1,0 +1,20 @@
+    -# 
+    -#   %span.author-name
+    -#     = share.author.first_name
+    -#   - if share.hashtags
+    -#     %div.post-tags
+    -#       - share.hashtags.each do |hashtag|
+    -#         = link_to hashtag.name, hashtag_path(hashtag.name), :class => 'hashtag'
+    -# %div.post-content.large-9.medium-9.columns
+    -#   - if share.has_link?
+    -#     = auto_link(share.content_link, :html => { :class => 'embedly-card', :target => '_blank' })
+    -#   - elsif share.has_attachments?
+    -#     %h3
+    -#       = share.attachment_title
+    -#     %p
+    -#       = share.attachment_description
+    -#     - share.attachments.each do |attachment|
+    -#       %i.fi-paperclip
+    -#       = link_to "#{share.attachment_title.downcase}-#{share.attachments.index(attachment) + 1}", share.attachment_url, :target => '_blank'
+    -#       %br
+    -# %hr

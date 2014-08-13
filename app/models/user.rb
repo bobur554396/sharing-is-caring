@@ -34,8 +34,6 @@ class User < ActiveRecord::Base
   has_many :shares, foreign_key: :author_id, dependent: :destroy
   accepts_nested_attributes_for :shares
 
-  # has_many :microposts, dependent: :destroy
-  # accepts_nested_attributes_for :microposts
 
 
   devise :database_authenticatable, :registerable,

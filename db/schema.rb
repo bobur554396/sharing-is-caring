@@ -13,22 +13,22 @@
 
 ActiveRecord::Schema.define(version: 20140810040040) do
 
-  create_table "attachments", force: true do |t|
+  create_table "attachment_shares", force: true do |t|
     t.string "token"
   end
 
   create_table "attachment_files", force: true do |t|
     t.string   "document"
-    t.integer  "attachment_id"
+    t.integer  "attachment_share_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "attachment_token"
+    t.string   "attachment_share_token"
     t.string   "document_file_name"
     t.string   "document_content_type"
     t.integer  "document_file_size"
     t.datetime "document_updated_at"
-    t.index ["attachment_id"], :name => "fk__attachment_files_attachment_id"
-    t.foreign_key ["attachment_id"], "attachments", ["id"], :on_update => :no_action, :on_delete => :no_action, :name => "fk_attachment_files_attachment_id"
+    t.index ["attachment_share_id"], :name => "fk__attachment_files_attachment_share_id"
+    t.foreign_key ["attachment_share_id"], "attachment_shares", ["id"], :on_update => :no_action, :on_delete => :no_action, :name => "fk_attachment_files_attachment_share_id"
   end
 
   create_table "users", force: true do |t|
@@ -80,7 +80,7 @@ ActiveRecord::Schema.define(version: 20140810040040) do
     t.foreign_key ["user_id"], "users", ["id"], :on_update => :no_action, :on_delete => :no_action, :name => "fk_authentications_user_id"
   end
 
-  create_table "links", force: true do |t|
+  create_table "link_shares", force: true do |t|
   end
 
   create_table "oauth_caches", id: false, force: true do |t|

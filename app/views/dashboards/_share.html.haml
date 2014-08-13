@@ -1,0 +1,9 @@
+-# - require 'pry'
+-if share.actable_type == 'AttachmentShare'
+  = render :partial => "attachment_shares/show", :locals => {share: AttachmentShare.find(share.actable_id)}
+
+-elsif share.actable_type == 'LinkShare'
+  = render :partial => "link_shares/show", :locals => {share: LinkShare.find(share.actable_id)}
+
+  
+  -# = render :partial => "shared/featured_property", :locals => {estate: Estate.where(id: 17).first}

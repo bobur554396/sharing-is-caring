@@ -21,7 +21,9 @@
 #= require jquery.scrollto
 #= require jquery.embedly.min
 #= require jquery.preview
-#= require microposts
+#= require shares
+#= require markitup
+#= require markitup/sets/markdown/set
 
 # Add error class to .avatar images if they fail to load
 # See avatar.scss and _avatar.html.haml
@@ -35,3 +37,13 @@ $ ->
     $(".alert-box").bind 'click', (ev) =>
       $(".alert-box").fadeOut()
     setTimeout flashCallback, 3000
+    
+    
+
+# # // Set up preview.
+$("#url").preview key: "3f5f5238235c4d9896c4e6e596e74ed1"
+
+# # // On submit add hidden inputs to the form.
+$("form").on "submit", ->
+  $(this).addInputs $("#url").data("preview")
+  true

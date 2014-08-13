@@ -13,4 +13,9 @@ module HashtagsHelper
     partial      = klass
     render "#{view_dirname}/#{partial}", {klass.to_sym => hashtaggable}
   end
+  
+  def all_hashtags_alphabetized
+    SimpleHashtag::Hashtag.all.order(:name)
+  end
+
 end

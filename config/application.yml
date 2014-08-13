@@ -5,6 +5,8 @@
 # Settings are manually applied to the correct config var as needed in specific initializers.
 # e.g. config/initializers/devise.rb
 
+
+
 common: &common
   # Downcased and trimmed app name for namespaces.
   # Safest to start with a letter rather than a number.
@@ -34,6 +36,13 @@ common: &common
     from: 'from@example.com'
 
 
+  embedly:
+    oembed_key: '3f5f5238235c4d9896c4e6e596e74ed1'
+    embedly_key: '3f5f5238235c4d9896c4e6e596e74ed1'
+    
+
+
+
 # Default ENV vars.
 # Set to development values for convenience and override in production by setting ENV on the server.
 # As a best practice, do not put production values in this file for security reasons.
@@ -49,6 +58,7 @@ default_env: &default_env
   AUTH_FACEBOOK_SECRET: '80ae1dc93961b7f9a79265af0eeca698'
   AUTH_TWITTER_KEY: 'hbcu8JvAB1FftWw7c3oog'
   AUTH_TWITTER_SECRET: 'uTspycZ4T7QAeA9QLGBb1zoLrR6K7ChBPdYt8F7nZc'
+
 
   # Devise password encryption keys.
   # Channging the keys will invalidate user passwords,
@@ -67,6 +77,8 @@ default_env: &default_env
   # Airbrake/Errbit configuration
   AIRBRAKE_API_KEY: ''
   AIRBRAKE_HOST: ''
+  
+  EMBEDLY_KEY: '3f5f5238235c4d9896c4e6e596e74ed1'
 
 
 development:

@@ -50,7 +50,6 @@ gem 'coffee-rails'
 
 # Design
 gem 'foundation-rails'
-gem 'embedly'
 # gem 'bourbon'
 # gem 'neat'
 # gem 'country_select'
@@ -162,3 +161,11 @@ end
 gem 'simple_hashtag'
 gem 'paperclip'
 gem 'active_record-acts_as'
+
+gem 'figaro'
+
+gem 'markitup-rails'
+gem 'redcarpet'
+gem 'filepicker-rails'
+gem 'embedly'
+gem 'link_thumbnailer'

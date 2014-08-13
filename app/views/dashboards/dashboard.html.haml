@@ -1,0 +1,85 @@
+-# - shares = Share.all
+-# - require 'pry'
+
+%div.row
+  %div.large-9.medium-8.columns
+    - if user_signed_in?
+      = render 'dashboards/share_selector'
+      = render 'dashboards/modal_share', layout: 'layouts/share_modal'
+    - else
+      %h3 Log In to Post
+    %div.resource-feed.row
+      - if @shares
+        - @shares.each do |share|
+          = render 'dashboards/share', share: share
+      %hr
+  = render 'dashboards/hashtags_sidebar'
+          
+
+
+
+
+-# 
+-# 
+-# %div.resource-feed.row
+-#   - posts.each do |post|
+-#     %div.post-meta.large-3.medium-9.columns
+-#       by
+-#       %span.author-name
+-#         = post.author.first_name
+-#       - if post.hashtags
+-#         %div.post-tags
+-#           - post.hashtags.each do |hashtag|
+-#             = link_to hashtag.name, hashtag_path(hashtag.name), :class => 'hashtag'
+-#     %div.post-content.large-9.medium-9.columns
+-#       - if post.has_link?
+-#         = auto_link(post.content_link, :html => { :class => 'embedly-card', :target => '_blank' })
+-#       - elsif post.has_attachments?
+-#         %h3
+-#           = post.attachment_title
+-#         %p
+-#           = post.attachment_description
+-#         - post.attachments.each do |attachment|
+-#           %i.fi-paperclip
+-#           = link_to "#{post.attachment_title.downcase}-#{post.attachments.index(attachment) + 1}", post.attachment_url, :target => '_blank'
+-#           %br
+-#     %hr
+-# 
+
+
+-# <div class='dashboardContent container'>
+-#   <div class='dashboardMainView row'>
+-#     <div class='panel col-xs-9'>
+-#       <div class='postsWrapper'>
+-#         <div class='modalWrapper'>
+-# 
+-#           <div class='dashboardPostsNavbar'>
+-#             <%= render partial: "dashboards/post_selector" %>
+-#           </div>
+-# 
+-#           <%= render partial: 'dashboards/modal_post', layout: 'layouts/post_modal' %>
+-#         </div>
+-#         <% unless current_user.selected_blog.nil? %>
+-#           <% current_user.selected_blog.posts.sort_by{|post| post[:created_at]}.reverse.each do |post| %>
+-# 
+-#               <%= render partial: 'dashboards/post',
+-#                 layout: 'layouts/post',
+-#                 locals: { post: post, markdown: @markdown } %>
+-# 
+-#           <% end %>
+-#         <% end %>
+-#       </div>
+-#       </div>
+-#       <div class='dashboardRightNavbar col-xs-3'>
+-#         <%= render partial: 'dashboards/right_navbar', layout: 'layouts/blank', locals: { blogs: current_user.blogs} %>
+-#       </div>
+-#     </div>
+-# 
+-# 
+-# 
+-#   </div>
+-# </div>
+-#   <%= javascript_tag do %>
+-#   	window.selectedBlogId = '<%=j current_user.selected_blog.id.to_s %>';
+-#     window.selectedBackground = '<%=j get_background_image(current_user.selected_blog.avatar_url) %>'
+-#   <% end %>

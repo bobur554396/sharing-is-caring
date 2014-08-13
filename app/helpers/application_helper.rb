@@ -1,5 +1,6 @@
 module ApplicationHelper
   include CommonHelper
+  include SharesHelper
   include HashtagsHelper
 
   # Render a partial only one time.
@@ -15,18 +16,6 @@ module ApplicationHelper
       render(view, *args, &block)
     end
   end
-
-  def all_microposts
-    Micropost.all.order(:created_at).reverse_order
-  end
-
-  def all_hashtags_alphabetized
-    SimpleHashtag::Hashtag.all.order(:name)
-  end
-
-
-
-
 
 
 end

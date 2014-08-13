@@ -1,0 +1,11 @@
+-# = render :partial => 'attachments/show', :locals => {share: AttachmentShare.find(share.actable_id)}
+= render :partial => 'shared/share_meta', :locals => {share: share}
+%div.post-content.large-9.medium-9.columns
+  %h3 
+    = share.title
+  %p
+    = share.content
+    - share.attachment_files.each do |attachment|
+      %i.fi-paperclip
+        = link_to "#{attachment.document_file_name.downcase}", attachment_file_url, :target => '_blank'
+      %br

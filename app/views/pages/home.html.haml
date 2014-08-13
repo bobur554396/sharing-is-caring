@@ -1,15 +1,15 @@
-- require 'rails_autolink'
-
-%div.row
-  = render 'layouts/hashtags_sidebar'
-  %div.large-9.medium-8.columns
-    - if user_signed_in?
-      = render 'microposts/form'
-      = render 'attachments/form'
-    - else
-      %h3 Log In to Post
-    = render 'layouts/resource_feed', posts: @posts
-
+-# - require 'rails_autolink'
+-# 
+-# %div.row
+-#   = render 'layouts/hashtags_sidebar'
+-#   %div.large-9.medium-8.columns
+-#     - if user_signed_in?
+-#       = render 'microposts/form'
+-#       = render 'attachments/form'
+-#     - else
+-#       %h3 Log In to Post
+-#     = render 'layouts/resource_feed', posts: @posts
+-# 
 
 
 
