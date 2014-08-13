@@ -1,0 +1,15 @@
+- require 'rails_autolink'
+
+
+%p#notice= notice
+
+%p
+  %b Content:
+  = auto_link(@resource.content, :html => { :class => 'embedly-card' })
+%p
+  %b User:
+  = @resource.user_id
+
+= link_to 'Edit', edit_resource_path(@resource)
+\|
+= link_to 'Back', resources_path
